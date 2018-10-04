@@ -7,12 +7,6 @@ class Player {
     this.tokens = this.createTokens(21);
   }
 
-  get unusedTokens() {
-    return this.tokens.filter(token => token.dropped === false)
-  }
-  get activeTokens() {
-    return this.unusedTokens[0];
-  }
 
   /**
    * Creates token objects for player
@@ -23,10 +17,17 @@ class Player {
   createTokens(num) {
     const tokens = [];
 
-    for (let i = 1; i < num; i++) {
+    for (let i = 0; i < num; i++) {
       let token = new Token(i, this);
       tokens.push(token);
     }
     return tokens;
+  }
+  
+  get unusedTokens() {
+    return this.tokens.filter(token => token.dropped === false)
+  }
+  get activeToken() {
+    return this.unusedTokens[0];
   }
 }
