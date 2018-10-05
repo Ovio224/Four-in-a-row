@@ -6,7 +6,7 @@ class Token {
     this.columnLocation = 0;
   }
   /**
-   * Dynamically gets the token's element's id
+   * Dynamically targets the token's element's id
    */
   get htmlToken() {
     return document.getElementById(this.id);
